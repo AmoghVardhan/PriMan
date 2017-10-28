@@ -1,6 +1,9 @@
 var app = angular.module('mainApp',['ngRoute']);
 app.config(function ($routeProvider) {
 	$routeProvider
+	.when('/validate',{
+		controller: 'validateController'
+	})
 	.when('/index',{
 		templateUrl: '/views/index.html',
 		controller: 'homeController'

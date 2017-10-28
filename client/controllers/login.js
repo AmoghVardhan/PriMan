@@ -2,7 +2,21 @@ var app = angular.module("mainApp");
 
 app.controller('loginController', function($scope, $location,$rootScope, $http) {
 	// console.log('aklsdkajsdksj');
+
+	$scope.data = {
+ 	availableOptions: [
+ 		{id: '0', name: 'Select'},
+ 		{id: '1', name: 'Family'},
+ 		{id: '2', name: 'Lawyer'},
+ 		{id: '3', name: 'Doctor'},
+ 		{id: '4', name: 'supervisor'}
+ 	],
+ 	selectedOption: {id: '0', name: 'Select'} //This sets the default value of the select in the ui
+ 	};
+
+
 	$scope.formsubmit=function(){
+
 	// $rootScope.loggedIn=false;
 		//root scope is a global variable which is accessible everywhere in all controllers
 		if($scope.login.username == 'admin' && $scope.login.password=='admin123'){
