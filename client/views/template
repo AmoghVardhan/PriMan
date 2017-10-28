@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<script src="/home/ksamogh/node_modules/jquery/dist/jquery.js"></script>
+	<script src = "/home/ksamogh/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="/home/ksamogh/bootstrap-3.3.7/dist/css/bootstrap.css">
+</head>
+<body>
+
+
+
+
+<script>
+	$(function(){
+			
+		
+
+	
+
+	});
+</script>
+<script src = "main.js"></script>
+</body>
+</html>

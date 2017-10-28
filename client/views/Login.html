@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+	<script src="/home/ksamogh/node_modules/jquery/dist/jquery.js"></script>
+	<script src = "/home/ksamogh/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/home/ksamogh/bootstrap-3.3.7/dist/css/bootstrap.css"> -->
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">PRISON MANAGEMENT</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li class="active"><a href="#">Login</a></li>
+      <!-- <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li> -->
+    </ul>
+  </div>
+</nav>
+<div class="form-group">
+	<label for="choose">Choose Login Type:</label>
+    <select class="form-control" name="topic">
+    	  <option>Select</option>
+          <option ng-model = "choice" value = "family">Family</option>
+          <option ng-model = "choice" value = "lawyer">Lawyer</option>
+          <option ng-model = "choice" value = "doctor">Doctor</option>
+          <option ng-model = "choice" value = "supervisor">Supervisor</option>
+     </select>
+</div>
+<br>
+
+  <form ng-submit="formsubmit()">
+  <div class="form-group">
+    <label>User Name:</label>
+    <input type="text"  class="form-control" ng-model = "login.username" >
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input type="password"  class="form-control" ng-model="login.password">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+{{choice}}
+
+<script>
+	$(function(){
+		//$("#name").slideUp(1000).delay(1000).slideDown(1000).fadeToggle(1000);
+		/*$("#name").css({
+			color:'red',
+			fontWeight:'bold',
+			opacity:'0.5'
+		})*/ //ctr shift slash for multiline comments
+		//select text to replace, alt f3 to replace all similar instancesss
+		var v;
+		$('select').on('change',function(){
+			 v = $(this).val();
+			if(v=="lawyer"||v=="supervisor")
+			{
+
+				$('.usn').html("ID:");
+			}
+			else
+				$('.usn').html("User Name");
+		})
+		$('.noChange').on('click',function(){
+			$('.usn').html("User Name:");
+			$('#rewrite').text($(this).text());
+		})
+
+		$('#submit').on('click',function(){
+						///using name make it into .html concatenate to go to the required page;
+
+			 window.location.href = "#/"+v;
+		})
+
+
+
+
+	});
+</script>
+<script src = "main.js"></script>
+</body>
+</html>

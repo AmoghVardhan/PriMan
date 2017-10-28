@@ -1,0 +1,22 @@
+h1{
+	background-color: yellow;
+}
+.r{
+	padding:10px 15px;
+	border-style: solid;	
+	text-align: left;
+}
+.r span{
+	padding-right: 25%;
+}
+.block {
+	flex-direction: column;
+	margin:10px 0px;
+	border:solid;
+}
+.set{
+	
+	
+	padding:10px
+}
+
