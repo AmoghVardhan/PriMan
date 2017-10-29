@@ -6,13 +6,9 @@ var bodyParser = require('body-parser');
 //var expressValidator = require('express-validator');
 var app = express();
 var morgan = require('morgan');
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'prison'
-});
+var Controllerlogin = require('./server/controllers/Controllerlogin');
+var ControllerAddPrisoner = require('./server/controllers/ControllerAddPrisoner');
+
 
 
 app.use(bodyParser.urlencoded({
@@ -29,30 +25,33 @@ app.use('/', express.static(__dirname + '/client/'));
 
 
 
-connection.connect();
+
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/client/main.html');
 });
 
-app.get('/checking',function(req,res){
-  var a = req.query.abcd;
-  connection.query("Insert into prisoner values(" + a + ",'ab','C1','ef','1947-04-23',4,'asdf',2,3,4,'kkjl','ioi')", function (error, results, fields)
-        {
-            if(error)
-              console.log(error);
-            console.log('inserted ' + results.affectedRows + ' rows');
-        });
-});
+app.post('/login', Controllerlogin.login);
+app.post('/addRecord', ControllerAddPrisoner.addRecord);
 
-app.post('/receive',function(req,res){
+// app.get('/checking',function(req,res){
+//   var a = req.query.abcd;
+//   connection.query("Insert into prisoner values(" + a + ",'ab','C1','ef','1947-04-23',4,'asdf',2,3,4,'kkjl','ioi')", function (error, results, fields)
+//         {
+//             if(error)
+//               console.log(error);
+//             console.log('inserted ' + results.affectedRows + ' rows');
+//         });
+// });
 
-
-        var name = "amogh";
-        console.log(req.body);
-        res.send('hello');
-
-});
+// app.post('/receive',function(req,res){
+//
+//
+//         var name = "amogh";
+//         console.log(req.body);
+//         res.send('hello');
+//
+// });
 
 
 

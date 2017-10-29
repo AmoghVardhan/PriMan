@@ -22,7 +22,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">PRISON MANAGEMENT</a>
+      <a class="navbar-brand" href="#/index.html">PRISON MANAGEMENT</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#/index.html">Home</a></li>
@@ -45,14 +45,14 @@
       ng-options="option.name for option in data.availableOptions track by option.id"
       ng-model="data.selectedOption"></select>
 			<p>option={{data.selectedOption}}</p>
-		<form ng-submit="formsubmit()">
+		<form ng-submit="login()">
 	  <div class="form-group">
 	    <label>User Name:</label>
-	    <input type="text"  class="form-control" ng-model = "login.username" >
+	    <input type="text"  class="form-control" ng-model = "username" >
 	  </div>
 	  <div class="form-group">
 	    <label>Password:</label>
-	    <input type="password"  class="form-control" ng-model="login.password">
+	    <input type="password"  class="form-control" ng-model="password">
 	  </div>
 	  <div class="checkbox">
 	    <label><input type="checkbox"> Remember me</label>
@@ -91,17 +91,17 @@
 			$('#rewrite').text($(this).text());
 		})
 
-		$('#submit').on('click',function(){
-						///using name make it into .html concatenate to go to the required page;
-
-			 window.location.href = "#/"+v;
-		})
+		// $('#submit').on('click',function(){
+		// 				///using name make it into .html concatenate to go to the required page;
+		//
+		// 	 window.location.href = "#/"+v;
+		// })
 
 
 
 
 	});
 </script>
-<script src = "main.js"></script>
+
 <!-- </body>
 </html> -->

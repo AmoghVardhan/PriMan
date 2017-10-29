@@ -21,31 +21,31 @@ app.config(function ($routeProvider) {
 		controller: 'doctorController'
 	})
 	.when('/lawyer',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/lawyer.html',
 		controller: 'lawyerController'
 	})
 	.when('/supervisor',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/supervisor.html',
 		controller: 'supervisorController'
 	})
 	.when('/requestValidate',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/requestValidate.html',
 		controller: 'requestValidateController'
 	})
 	.when('/viewDetails',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/viewDetails.html',
 		controller: 'viewDetailsController'
 	})
 	.when('/assignWork',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/assignWork.html',
 		controller: 'assignWorkController'
 	})
 	.when('/addPrisoner',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/addPrisoner.html',
 		controller: 'addPrisonerController'
 	})
 	.when('/addDependents',{
-		templateUrl: '/views/Login.html',
+		templateUrl: '/views/addDependents.html',
 		controller: 'addDependentsController'
 	})
 	.otherwise({

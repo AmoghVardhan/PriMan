@@ -15,20 +15,66 @@ app.controller('loginController', function($scope, $location,$rootScope, $http) 
  	};
 
 
-	$scope.formsubmit=function(){
+     $scope.login = function() {
+       $http({
+         url: '/login',
+         method: 'post',
+         data: {
+           "username": $scope.username,
+           "password": $scope.password
+         }
+       }).then(function(data) {
+         if(data.data.success) {
+  				 var id = data.data.id;
+  				 switch (id) {
+  				 	case 0:
+  						$location.path('/index');
+  						alert("Please Choose Login Type!!!");
+  				 		break;
+  					case 1:
+  						$location.path('/family');
+  						break;
+  					case 2:
+  						$location.path('/lawyer');
+  						break;
+  					case 3:
+  						$location.path('/doctor');
+  						break;
+  					case 4:
+  						$location.path('/supervisor');
+  						break;
+  				 	default:
 
-	// $rootScope.loggedIn=false;
-		//root scope is a global variable which is accessible everywhere in all controllers
-		if($scope.login.username == 'admin' && $scope.login.password=='admin123'){
-			$rootScope.loggedIn = true;
-			$http.post("/hereiam",$scope.login).
-		success(function(data){
-			alert('Done finally');
+  				 }
+         }
+         else {
+           alert(data.data.message);
+         }
+       }, function(err){})
+     }
 
-		}).error(function(data){
-			console.log('oops try again');
-		});
-		}
-		else alert("incorrect")
-	}
 });
+
+
+
+
+
+
+
+
+// 	$scope.formsubmit=function(){
+// 	// $rootScope.loggedIn=false;
+// 		//root scope is a global variable which is accessible everywhere in all controllers
+// 		if($scope.login.username == 'admin' && $scope.login.password=='admin123'){
+// 			$rootScope.loggedIn = true;
+// 			$http.post("/hereiam",$scope.login).
+// 		success(function(data){
+// 			alert('Done finally');
+//
+// 		}).error(function(data){
+// 			console.log('oops try again');
+// 		});
+// 		}
+// 		else alert("incorrect")
+// 	}
+// });

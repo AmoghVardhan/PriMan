@@ -1,118 +1,117 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-
-
-	<script src="/home/ksamogh/node_modules/jquery/dist/jquery.js"></script>
-	<script src = "/home/ksamogh/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<link rel="stylesheet" type="text/css" href="/home/ksamogh/bootstrap-3.3.7/dist/css/bootstrap.css">
-</head>
-<body>
+<div ng-controller="addPrisonerController">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">PRISON MANAGEMENT</a>
+      <a class="navbar-brand" href="#/index">PRISON MANAGEMENT</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="requestValidate.html">Request Validate</a></li>
-      <li><a href="viewDetails.html">View Details</a></li>
-      <li><a href="assignWork.html">Assign Work</a></li>
+      <li><a href="#/requestValidate">Request Validate</a></li>
+      <li><a href="#/viewDetails">View Details</a></li>
+      <li><a href="#/assignWork">Assign Work</a></li>
       <li class ="active"><a>Add Prisoner</a></li>
-      <li><a href = "addDependents.html">Add Dependent</a></li>
+      <li><a href = "#/addDependents">Add Dependent</a></li>
       <!-- <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li> -->
-    </ul> 
+    </ul>
   </div>
-</nav>  
-<form action="/checking" method="GET" >
+</nav>
+<form ng-submit="addRecord()">
 <div class="col-sm-6">
   <div class="form-group">
     <label for="pid">Unique ID: </label>
-    <input  name = "abcd" type="text" class="form-control" id="pid" runat="server">
+    <input  name = "abcd" type="text" class="form-control" ng-model="id">
   </div>
   <div class="form-group">
     <label for="usr">Prisoner Name:</label>
-    <input type="text" class="form-control" id="usr">
+    <input type="text" class="form-control" id="usr" ng-model="pname">
   </div>
      <div class="form-group">
       <label for="sel1">Crime commited:</label>
-      <select class="form-control" id="sel1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-    </div> 
+      <select name="mySelect" id="mySelect"
+       ng-options="option.name for option in data.availableOptions track by option.id"
+       ng-model="data.selectedOption"></select>
+       <p>option={{data.selectedOption}}</p>
+    </div>
   <div class="form-group">
     <label for="doj">Date Of Jailing:</label>
-    <input type="text" class="form-control" id="doj">
-  </div>  
+    <input type="text" class="form-control" id="doj" ng-model="doj">
+  </div>
   <div class="form-group">
     <label for="address">Address:</label>
-    <input type="text" class="form-control" id="address">
-  </div>  
+    <input type="text" class="form-control" id="address" ng-model="address">
+  </div>
   <div class="form-group">
     <label for="remarks">Remarks:</label>
-    <textarea class = "form-control" rows = "5" id = "remarks"></textarea>
-  </div>  
-  
-  <button id = "submit" type="submit" class="btn btn-default">Submit</button>
+    <textarea class = "form-control" rows = "5" id = "remarks" ng-model="remarks"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
 </div>
 <div class="col-sm-6">
-  <div class="form-group">
-    <label for="profilePhoto">Add Photo:</label> 
-    <br>   
-     <img src="usr.jpg" class="img-thumbnail" alt="Cinque Terre" width="204" height="186"> 
+  <!-- <div class="form-group">
+    <label for="profilePhoto">Add Photo:</label>
+    <br>
+     <img src="usr.jpg" class="img-thumbnail" alt="Cinque Terre" width="204" height="186">
 
-     <div class="form-group upload"><!--and here-->
+     <div class="form-group upload">
       <br>
        <label for="upload_photo"> Upload your photo</label>
        <input type="file" name="upload_photo" />
 </div>
-  </div>  
+  </div> -->
   <div class="form-group">
     <label for="medicalRecords">Medical Records:</label>
-    <textarea class = "form-control" rows = "5" id = "medicalRecords"></textarea>
-  </div>  
-  
+    <textarea class = "form-control" rows = "2" id = "medicalRecords" ng-model="medicalRecords"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="case id">Case ID:</label>
+    <input type="text" class="form-control" id="caseId" ng-model="cid">
+  </div>
+  <div class="form-group">
+    <label for="lawyerId">Lawyer ID:</label>
+    <input type="text" class="form-control" id="lid" ng-model="lid">
+  </div>
+  <div class="form-group">
+    <label for="cell id">Cell ID:</label>
+    <input type="text" class="form-control" id="cellid" ng-model="cellid">
+  </div>
+  <div class="form-group">
+    <label for="dept id">Department ID:</label>
+    <input type="text" class="form-control" id="did" ng-model="did">
+  </div>
+  <div class="form-group">
+    <label for="shift">Shift:</label>
+    <input type="text" class="form-control" id="shift" ng-model="shift">
+  </div>
+
+
 
 </div>
-</form> 
-
+</form>
+</div>
 
 <script>
 	$(function(){
-			
-		$("#submit").click(function(){
-      alert("Form submitted");
-    });
 
-    var info = {};
-    info.title="title";
-    var $pid = $('#pid');
-    $.ajax({
-      type: 'POST',
-      contentType:"application/json"
-      url: 'http://localhost:1337/addPrisoner.html',
-      success: function(info){
-        $pid.append(info.name)
-        window.alert('i know');
-      }
-    })
+		// $("#submit").click(function(){
+    //   alert("Form submitted");
+    // });
+		//
+    // var info = {};
+    // info.title="title";
+    // var $pid = $('#pid');
+    // $.ajax({
+    //   type: 'POST',
+    //   contentType:"application/json"
+    //   url: 'http://localhost:1337/addPrisoner.html',
+    //   success: function(info){
+    //     $pid.append(info.name)
+    //     window.alert('i know');
+    //   }
+    // })
 
-	
+
 
 	});
 </script>
-<script src = "main.js"></script>
-</body>
-</html>
