@@ -8,6 +8,17 @@ var app = express();
 var morgan = require('morgan');
 var Controllerlogin = require('./server/controllers/Controllerlogin');
 var ControllerAddPrisoner = require('./server/controllers/ControllerAddPrisoner');
+var ControllerAddDependents = require('./server/controllers/ControllerAddDependents');
+var ControllerAssignWork = require('./server/controllers/ControllerAssignWork');
+var ControllerFamily = require('./server/controllers/ControllerFamily');
+var ControllerLawyer = require('./server/controllers/ControllerLawyer');
+var ControllerDoctor = require('./server/controllers/ControllerDoctor');
+var ControllerRequestValidate = require('./server/controllers/ControllerRequestValidate');
+
+
+
+
+
 
 
 
@@ -33,6 +44,18 @@ app.get('/', function(req, res) {
 
 app.post('/login', Controllerlogin.login);
 app.post('/addRecord', ControllerAddPrisoner.addRecord);
+app.post('/addDep', ControllerAddDependents.addDep);
+app.post('/assignW', ControllerAssignWork.assignW);
+app.post('/meetReq', ControllerFamily.meetReq);
+app.post('/meetReqLaw', ControllerLawyer.meetReqLaw);
+app.post('/meetReqDoc', ControllerDoctor.meetReqDoc);
+app.post('/retrieve', ControllerRequestValidate.retrieve);
+
+
+
+
+
+
 
 // app.get('/checking',function(req,res){
 //   var a = req.query.abcd;
@@ -56,23 +79,23 @@ app.post('/addRecord', ControllerAddPrisoner.addRecord);
 
 
 
-app.get('/:ext',function(req,res){
-
-   var dest = req.params.ext;
-	 res.sendFile('./files/'+dest,{root: __dirname});
-   // console.log(dest);
-   if(dest=='addPrisoner.html')
-    {
-      console.log(req.query.pid);
-      var post  = {id: 1};
-    }
-
-});
-
-app.post('/hereiam',function(req,res){
-  console.log(req.body);
-  res.end();
-});
+// app.get('/:ext',function(req,res){
+//
+//    var dest = req.params.ext;
+// 	 res.sendFile('./files/'+dest,{root: __dirname});
+//    // console.log(dest);
+//    if(dest=='addPrisoner.html')
+//     {
+//       console.log(req.query.pid);
+//       var post  = {id: 1};
+//     }
+//
+// });
+//
+// app.post('/hereiam',function(req,res){
+//   console.log(req.body);
+//   res.end();
+// });
 app.listen(1337,function(){
 	console.log('Listening to port 1337');
 });

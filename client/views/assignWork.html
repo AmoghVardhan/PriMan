@@ -1,4 +1,4 @@
-
+<div ng-controller = "assignWorkController">
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -9,7 +9,7 @@
       <li><a href="#/viewDetails">View Details</a></li>
       <li class = "active"><a href = "#">Assign Work</a></li>
       <li><a href="#/addPrisoner">Add Prisoner</a></li>
-      <li><a href = "addDependents">Add Dependent</a></li>
+      <li><a href = "#/addDependents">Add Dependent</a></li>
       <!-- <li><a href="#/#">Page 2</a></li>
       <li><a href="#">Page 3</a></li> -->
     </ul>
@@ -17,31 +17,32 @@
 </nav>
 <label class="control-label">Assign For : </label>
 <div class="radio-inline">
-  <label><input type="radio" name="optradio" class = "prisoner" checked>Prisoner</label>
+  <label><input ng-model="type.category" value="Prisoner" type = "radio" name="optradio" class = "prisoner" checked>Prisoner</label>
 </div>
 <div class="radio-inline">
-  <label><input type="radio" name="optradio" class = "guard">Guard</label>
+  <label><input ng-model="type.category" value ="Guard" type="radio" name="optradio" class = "guard">Guard</label>
 </div>
-<form>
+<!-- <p>{{type.category}}</p> -->
+<form ng-submit="assignW()">
 
   <div class="form-group">
   	<br>
     <label for="pid" class = "pid">Prisoner ID:</label>
-    <input type="text" class="form-control" id="pid">
+    <input type="text" class="form-control" id="pid"  ng-model="pgid">
   </div>
   <div class="form-group">
     <label for="did">Department ID:</label>
-    <input type="text" class="form-control" id="did">
+    <input type="text" class="form-control" id="did" ng-model="did">
   </div>
   <div class="form-group">
     <label for="shift">Shift:</label>
-    <input type="text" class="form-control" id="shift">
+    <input type="text" class="form-control" id="shift" ng-model="shift">
   </div>
   <button id = "submit" type="button" class="btn btn-default">Submit</button>
 </form>
 
 
-
+</div>
 <script>
 	$(function(){
 

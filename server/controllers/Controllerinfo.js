@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
   password : '',
   database : 'prison'
 });
-var info= ['student_name', 'usn', 'semester','activities','level'];
+
 
 module.exports.feed = function(req,res) {
 /*connection.query('SELECT ?? FROM records', [info], function(err,result){
@@ -28,11 +28,7 @@ module.exports.addrecord = function(req, res) {
   console.log(req.body);
   console.log(res);
   var info = {
-    student_name: req.body.student_name,
-    usn : req.body.usn,
-    semester : req.body.semester,
-    activities : req.body.activities,
-    level : req.body.level
+    
   }
   connection.query('INSERT INTO records SET ?', info, function(err,result){
    if(err) {

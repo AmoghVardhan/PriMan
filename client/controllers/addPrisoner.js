@@ -40,7 +40,7 @@ app.controller('addPrisonerController', function($scope, $location,$rootScope, $
         alert("Prisoner added successfully");
       }
       else {
-        alert(data.data.message);
+        alert("Please Enter all the details");
       }
     }, function(err){})
   }

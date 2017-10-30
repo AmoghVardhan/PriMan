@@ -15,7 +15,7 @@ app.controller('loginController', function($scope, $location,$rootScope, $http) 
  	};
 
 
-     $scope.login = function() {
+     $rootScope.login = function() {
        $http({
          url: '/login',
          method: 'post',
@@ -41,7 +41,8 @@ app.controller('loginController', function($scope, $location,$rootScope, $http) 
   						$location.path('/doctor');
   						break;
   					case 4:
-  						$location.path('/supervisor');
+							$rootScope.isLoggedIn=true;
+  						$location.path('/requestValidate');
   						break;
   				 	default:
 

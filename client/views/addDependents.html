@@ -1,4 +1,4 @@
-
+<div ng-controller="addDependentsController">
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -16,21 +16,21 @@
     </ul>
   </div>
 </nav>
-<form action="addDependents.html" method="GET" >
+<form ng-submit="addDep()" >
 <div class="col-sm-6">
   <div class="form-group">
-    <label for="pid">Name: </label>
-    <input type="text" class="form-control" id="pid" runat="server">
+    <label for="name">Name: </label>
+    <input type="text" class="form-control" id="pid" ng-model="name">
     <label for="pid">Prisoner ID: </label>
-    <input type="text" class="form-control" id="pid" runat="server">
+    <input type="text" class="form-control" id="pid" ng-model="pid">
   </div>
   <div class="form-group">
     <label for="relation">Relation:</label>
-    <input type="text" class="form-control" id="relation">
+    <input type="text" class="form-control" id="relation" ng-model="relation">
   </div>
   <div class="form-group">
     <label for="phoneNo">Phone No:</label>
-    <input type="text" class="form-control" id="phoneNo" pattern="^\d{10}$" required>
+    <input type="text" class="form-control" id="phoneNo" ng-model = "phoneNo" pattern="^\d{10}$" required>
   </div>
 
   <button id = "submit" type="submit" class="btn btn-default">Submit</button>
@@ -38,26 +38,26 @@
 
 </form>
 
-
+</div>
 <script>
 	$(function(){
 
-		$("#submit").click(function(){
-      alert("Form submitted");
-    });
+		// $("#submit").click(function(){
+    //   alert("Form submitted");
+    // });
 
-    var info = {};
-    info.title="title";
-    var $pid = $('#pid');
-    $.ajax({
-      type: 'POST',
-      contentType:"application/json"
-      url: 'http://localhost:1337/addPrisoner.html',
-      success: function(info){
-        $pid.append(info.name)
-        window.alert('i know');
-      }
-    })
+    // var info = {};
+    // info.title="title";
+    // var $pid = $('#pid');
+    // $.ajax({
+    //   type: 'POST',
+    //   contentType:"application/json"
+    //   url: 'http://localhost:1337/addPrisoner.html',
+    //   success: function(info){
+    //     $pid.append(info.name)
+    //     window.alert('i know');
+    //   }
+    // })
 
 
 

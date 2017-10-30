@@ -1,31 +1,31 @@
-
+<div ng-controller="ControllerDoctor">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">PRISON MANAGEMENT</a>
+      <a class="navbar-brand" href="#/index.html">PRISON MANAGEMENT</a>
     </div>
 
   </div>
 </nav>
 
-<form>
+<form ng-submit="meetReqDoc">
     <label for="req">Enter prisoner's ID whose medical records has to be viewed:</label>
     <div class="form-group">
     <label for="pid">ID:</label>
-    <input type="text" class="form-control" id="pid">
+    <input type="text" class="form-control" id="pid" ng-model="pid">
   </div>
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name">
+    <input type="text" class="form-control" id="name" ng-model="pname">
   </div>
   <div id = "med" class="form-group">
     <label for="mr">Medical Records:</label>
-    <textarea class = "form-control" rows = "5" id = "mr"></textarea>
+    <textarea class = "form-control" rows = "5" id = "mr" ng-model="medicalRecords"></textarea>
   </div>
 
   <button id = "submit" type="button" class="btn btn-default">Submit</button>
 </form>
-
+</div>
 
 <script>
 	$(function(){

@@ -1,4 +1,4 @@
-
+<div ng-controller="ControllerLawyer">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -7,35 +7,33 @@
 
   </div>
 </nav>
-<form>
-
-
+<form ng-submit="meetReqLaw()">
     <label for="req">Fill in the following details to send request to the supervisor:</label>
     <div class="form-group">
     <label for="lid">ID:</label>
-    <input type="text" class="form-control" id="lid">
+    <input type="text" class="form-control" id="lid" ng-model="lid">
   </div>
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name">
+    <input type="text" class="form-control" id="name" ng-model="name">
   </div>
   <div class="form-group">
     <label for="reason">Reason for request:</label>
-    <input type="text" class="form-control" id="reason">
+    <input type="text" class="form-control" id="reason" ng-model="reason">
   </div>
     <label for="reqtm">Request To Meet (Enter prisoner details):</label>
   <div class="form-group">
     <label for="pid">PID:</label>
-    <input type="text" class="form-control" id="pid">
+    <input type="text" class="form-control" id="pid" ng-model="pid">
   </div>
   <div class="form-group">
     <label for="pname">Prisoner Name:</label>
-    <input type="text" class="form-control" id="pname">
+    <input type="text" class="form-control" id="pname" ng-model="pname">
   </div>
   <button id = "submit" type="button" class="btn btn-default">Submit</button>
 </form>
 
-
+</div>
 <script>
 	$(function(){
 

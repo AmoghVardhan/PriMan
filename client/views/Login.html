@@ -41,10 +41,11 @@
           <option  value = "doctor">Doctor</option>
           <option  value = "supervisor">Supervisor</option>
      </select> -->
+
 		 <select name="mySelect" id="mySelect"
       ng-options="option.name for option in data.availableOptions track by option.id"
       ng-model="data.selectedOption"></select>
-			<p>option={{data.selectedOption}}</p>
+			<!-- <p>option={{data.selectedOption}}</p> -->
 		<form ng-submit="login()">
 	  <div class="form-group">
 	    <label>User Name:</label>
@@ -54,9 +55,7 @@
 	    <label>Password:</label>
 	    <input type="password"  class="form-control" ng-model="password">
 	  </div>
-	  <div class="checkbox">
-	    <label><input type="checkbox"> Remember me</label>
-	  </div>
+
 	  <button type="submit" class="btn btn-default">Submit</button>
 	</form>
 </div>
