@@ -11,7 +11,7 @@ module.exports.validate = function(req, res) {
   console.log(res);
 
 
-  connection.query('SELECT * FROM dependants', function (error, result1, fields) {
+  connection.query('SELECT * FROM dependants where Status="Pending"', function (error, result1, fields) {
 
     if(error) console.log(error);
     else {

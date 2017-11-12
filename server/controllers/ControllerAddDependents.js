@@ -14,7 +14,7 @@ module.exports.addDep = function(req, res) {
     p_id:req.body.pid,
     relation:req.body.relation,
     phNo:req.body.phoneNo,
-    status:"invalid",
+    status:"Pending",
     super_id:req.body.super,
     reason:""
 
