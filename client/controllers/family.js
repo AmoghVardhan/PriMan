@@ -3,16 +3,11 @@ var app = angular.module("mainApp");
 app.controller('familyController', function($scope, $location,$rootScope, $http) {
 
 
-  $scope.meetReq=function(){
+  $scope.meetReqFam=function(fam){
     $http({
-      url: '/meetReq',
+      url: '/meetReqFam',
       method: 'post',
-      data: {
-        "name": $scope.name,
-        "reason": $scope.reason,
-        "pid": $scope.pid,
-        "pname": $scope.pname
-      }
+      data: fam
     }).then(function(data) {
       if(data.data.success) {
         alert("Dependent added successfully");

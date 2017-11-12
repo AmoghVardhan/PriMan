@@ -10,26 +10,26 @@
 <!-- <label ng-show>
   Your request has not yet been approved.
 </label> -->
-<form ng-submit="meetReq()">
+<form ng-submit="meetReqFam(fam)">
 <label for="req">Fill in the following details to send request to the supervisor:</label>
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name" ng-model="name">
+    <input type="text" class="form-control" id="name" ng-model="fam.name">
   </div>
   <div class="form-group">
     <label for="reason">Reason for request:</label>
-    <input type="text" class="form-control" id="reason" ng-model = "reason">
+    <input type="text" class="form-control" id="reason" ng-model = "fam.reason">
   </div>
     <label for="reqtm">Request To Meet (Enter prisoner details):</label>
   <div class="form-group">
     <label for="pid">PID:</label>
-    <input type="text" class="form-control" id="pid" ng-model="pid">
+    <input type="text" class="form-control" id="pid" ng-model="fam.pid">
   </div>
   <div class="form-group">
     <label for="pname">Prisoner Name:</label>
-    <input type="text" class="form-control" id="pname" ng-model="pname">
+    <input type="text" class="form-control" id="pname" ng-model="fam.pname">
   </div>
-  <button id = "submit" type="button" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
 <script>

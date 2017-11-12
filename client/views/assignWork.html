@@ -1,4 +1,4 @@
-<div ng-controller = "assignWorkController">
+	<div ng-controller = "assignWorkController">
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -17,28 +17,35 @@
 </nav>
 <label class="control-label">Assign For : </label>
 <div class="radio-inline">
-  <label><input ng-model="type.category" value="Prisoner" type = "radio" name="optradio" class = "prisoner" checked>Prisoner</label>
+  <label><input ng-model="type.category" ng-change="dis(1)" value="Prisoner" type = "radio" name="optradio" class = "prisoner" checked>Prisoner</label>
 </div>
 <div class="radio-inline">
-  <label><input ng-model="type.category" value ="Guard" type="radio" name="optradio" class = "guard">Guard</label>
+  <label><input ng-model="type.category" ng-change="dis(2)" value ="Guard" type="radio" name="optradio" class = "guard">Guard</label>
 </div>
 <!-- <p>{{type.category}}</p> -->
-<form ng-submit="assignW()">
+<form ng-submit="assignW(assign)">
 
-  <div class="form-group">
+  <div ng-if="pri" class="form-group">
   	<br>
     <label for="pid" class = "pid">Prisoner ID:</label>
-    <input type="text" class="form-control" id="pid"  ng-model="pgid">
+    <input type="text" class="form-control" id="pid"  ng-model="$parent.assign.pid">
   </div>
+
+	<div ng-if="gua" class="form-group">
+		<br>
+		<label for="pid" class = "pid">Guard ID:</label>
+		<input type="text" class="form-control" id="gid"  ng-model="$parent.assign.gid">
+	</div>
+
   <div class="form-group">
     <label for="did">Department ID:</label>
-    <input type="text" class="form-control" id="did" ng-model="did">
+    <input type="text" class="form-control" id="did" ng-model="assign.did">
   </div>
   <div class="form-group">
     <label for="shift">Shift:</label>
-    <input type="text" class="form-control" id="shift" ng-model="shift">
+    <input type="text" class="form-control" id="shift" ng-model="assign.shift">
   </div>
-  <button id = "submit" type="button" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
 

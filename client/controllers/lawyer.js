@@ -1,15 +1,9 @@
 var app = angular.module("mainApp");
 
 app.controller('lawyerController', function($scope, $location,$rootScope, $http) {
-alert("herer");
-
-$scope.name = "";
-$scope.reason = "";
-$scope.pid = "";
-$scope.pname = "";
-$scope.lid = "";
+// alert("herer");
   $scope.meetReqLaw=function(lawyer){
-    alert("in function ")
+    // alert("in function ")
     $http({
       url: '/meetReqLaw',
       method: 'post',

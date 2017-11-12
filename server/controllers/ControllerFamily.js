@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   database : 'prison'
 });
 
-module.exports.meetReq = function(req, res) {
+module.exports.meetReqFam = function(req, res) {
   console.log(req.body);
   console.log(res);
   var info = {
@@ -15,13 +15,13 @@ module.exports.meetReq = function(req, res) {
     pid:req.body.pid,
     pname:req.body.pname
   }
-  // connection.query('INSERT INTO prisoner SET ?', info, function(err,result){
-  //  if(err) {
-  //    console.log(err);
-  //    res.send({success: false});
-  //  }
-  //  else {
-  //    res.send({success: true});
-  //  }
-  // });
+  connection.query('update  dependants set Reason =? where Name =?', [info.reason,info.name], function(err,result){
+   if(err) {
+     console.log(err);
+     res.send({success: false});
+   }
+   else {
+     res.send({success: true});
+   }
+  });
   }

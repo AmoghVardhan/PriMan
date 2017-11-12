@@ -15,7 +15,8 @@ module.exports.addDep = function(req, res) {
     relation:req.body.relation,
     phNo:req.body.phoneNo,
     status:"invalid",
-    super_id:2
+    super_id:req.body.super,
+    reason:""
 
   }
   connection.query('INSERT INTO dependants SET ?', info, function(err,result){

@@ -2,6 +2,7 @@ var app = angular.module("mainApp");
 
 app.controller('doctorController', function($scope, $location,$rootScope, $http) {
   alert('reached');
+  $scope.show=false;
   $scope.meetReqDoc=function(){
 
     $http({
@@ -15,6 +16,7 @@ app.controller('doctorController', function($scope, $location,$rootScope, $http)
     }).then(function(data) {
       if(data.data.success) {
         alert("Data Retrieved");
+        $scope.show=true;
         $scope.medfill=data.data.result[0].medical_records;
         console.log(data.data.result[0]);
       }

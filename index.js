@@ -14,6 +14,8 @@ var ControllerFamily = require('./server/controllers/ControllerFamily');
 var ControllerLawyer = require('./server/controllers/ControllerLawyer');
 var ControllerDoctor = require('./server/controllers/ControllerDoctor');
 var ControllerViewDetails = require('./server/controllers/ControllerViewDetails');
+var ControllerRequestValidate = require('./server/controllers/ControllerRequestValidate');
+
 
 
 
@@ -46,10 +48,17 @@ app.post('/login', Controllerlogin.login);
 app.post('/addRecord', ControllerAddPrisoner.addRecord);
 app.post('/addDep', ControllerAddDependents.addDep);
 app.post('/assignW', ControllerAssignWork.assignW);
-app.post('/meetReq', ControllerFamily.meetReq);
+app.post('/meetReqFam', ControllerFamily.meetReqFam);
 app.post('/meetReqLaw', ControllerLawyer.meetReqLaw);
 app.post('/meetReqDoc', ControllerDoctor.meetReqDoc);
 app.post('/retrieve', ControllerViewDetails.retrieve);
+app.post('/requestValidate', ControllerRequestValidate.validate);
+app.post('/requestValidate1', ControllerRequestValidate.validate1);
+app.post('/requestValidate2', ControllerRequestValidate.validate2);
+app.post('/requestValidate3', ControllerRequestValidate.validate3);
+app.post('/requestValidate4', ControllerRequestValidate.validate4);
+
+
 
 
 

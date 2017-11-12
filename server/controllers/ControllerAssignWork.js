@@ -7,28 +7,38 @@ var connection = mysql.createConnection({
 });
 
 module.exports.assignW = function(req, res) {
-  console.log(req.body);
-  console.log(res);
-  var type=req.body.type;
+  //console.log(req.body);
+  //console.log(res);
   var info = {
-    pgid:req.body.pgid,
+    pid:req.body.pid,
+    gid:req.body.gid,
     did:req.body.did,
     shift:req.body.shift,
 
   }
-  if(type=="Prisoner")
+  if(info.pid!="undefined")
   {
-      //connection.query('INSERT INTO dependants SET ?', info, function(err,result){
+    connection.query('update  prisoner set D_id =?,Shift=? where Pid =?', [info.did,info.Shift,info.pid], function(err,result){
+     if(err) {
+       console.log(err);
+       res.send({success: false});
+     }
+     else {
+       res.send({success: true});
+     }
+    });
   }
-  else {
-      //connection.query('');
+  if(info.gid!="undefined") {
+    connection.query('update  guard set D_id =?,Shift=? where Gid =?', [info.did,info.Shift,info.gid], function(err,result){
+     if(err) {
+       console.log(err);
+       res.send({success: false});
+     }
+     else {
+       res.send({success: true});
+     }
+    });
   }
 
-   if(err) {
-     console.log(err);
-     res.send({success: false});
-   }
-   else {
-     res.send({success: true});
-   }
+
   }

@@ -12,7 +12,8 @@ app.controller('addDependentsController', function($scope, $location,$rootScope,
         "name": $scope.name,
         "pid": $scope.pid,
         "relation": $scope.relation,
-        "phoneNo": $scope.phoneNo
+        "phoneNo": $scope.phoneNo,
+        "super":$scope.super
 
       }
     }).then(function(data) {

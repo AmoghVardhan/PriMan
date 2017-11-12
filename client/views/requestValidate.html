@@ -1,4 +1,7 @@
-<div ng-show="isLoggedIn">
+
+<div ng-controller="requestValidateController">
+
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -15,31 +18,69 @@
     </ul>
   </div>
 </nav>
-<form>
+
+<label>Requests from Dependants</label>
+<div>
+  <table style="table-layout:fixed"class="table" show-filter="true">
+    <tr>
+<th>Choose Action</th>
+  <th>Name</th>
+  <th>P_id</th>
+  <th>Relation</th>
+
+  <th>Reason</th>
 
 
-    <label for="req">Request From:</label>
-  <div class="form-group">
-    <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name">
-  </div>
-  <div class="form-group">
-    <label for="reason">Reason:</label>
-    <input type="text" class="form-control" id="reason">
-  </div>
-    <label for="reqtm">Request To Meet(Enter prisoner details):</label>
-  <div class="form-group">
-    <label for="pid">PID:</label>
-    <input type="text" class="form-control" id="pid">
-  </div>
-  <div class="form-group">
-    <label for="pname">Prisoner Name:</label>
-    <input type="text" class="form-control" id="pname">
-  </div>
-  <button type="submit">Submit</button>
-</form>
+
+    </tr>
+      <tr ng-repeat="x in dependents">
+        <!-- <th>{{x}}</th> -->
+
+        <td><button style="background:green" ng-click="statusUpdateDepAcc(x)">Accept</button>
+        <button style="background:red" ng-click="statusUpdateDepRej(x)">Reject</button></td>
+          <td>{{x.Name}}</td>
+          <td>{{x.P_id}}</td>
+          <td>{{x.Relation}}</td>
+
+          <td>{{x.Reason}}</td>
+
+      </tr>
+  </table></div>
 
 
+<label>Requests from Lawyers</label>
+<div>
+  <table style="table-layout:fixed" class="table" show-filter="true">
+    <tr>
+  <th>Choose Action</th>
+  <th>Lid</th>
+  <th>Phno</th>
+  <th>Address</th>
+  <th>Reason</th>
+
+
+
+    </tr>
+      <tr ng-repeat="x in lawyer">
+        <!-- <th>{{x}}</th> -->
+        <td><button style="background:green" ng-click="statusUpdateLawAcc(x)">Accept</button>
+        <button style="background:red" ng-click="statusUpdateLawRej(x)">Reject</button></td>
+          <td>{{x.Lid}}</td>
+          <td>{{x.PhNo}}</td>
+          <td>{{x.Address}}</td>
+          <td>{{x.Reason}}</td>
+
+
+      </tr>
+  </table>
+</div>
+
+
+
+
+
+
+</div>
 <script>
 	$(function(){
 

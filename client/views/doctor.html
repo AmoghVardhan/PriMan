@@ -19,10 +19,10 @@
     <input type="text" class="form-control" id="name" ng-model="pname">
   </div>
 
-
   <button  type="submit" class="btn btn-default">Submit</button>
 </form>
-<div id = "med" class="form-group">
+<br>
+<div ng-if="show==1" id = "med" class="form-group">
   <label for="mr">Medical Records:</label>
   <textarea class = "form-control" rows = "5" id = "mr" ng-model="medfill">
   {{medfill}}</textarea>
