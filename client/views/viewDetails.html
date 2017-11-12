@@ -35,7 +35,7 @@
  ng-options="option.name for option in data.availableOptions track by option.id"
  ng-model="data.selectedOption"
  value = "data.selectedOption.id"
- ng-change="update(data.selectedOption.name)"></select>
+ ng-change="update(data.selectedOption.id)"></select>
  <!-- <p>option={{data.selectedOption}}</p> -->
 <!-- <form ng-submit="retrieve()">
  <div class="form-group">
@@ -44,11 +44,178 @@
    <input type="text" class="form-control" id="name" ng-model="id">
  </div>
 <button type="submit">Retrieve</button> -->
+
+<!-- {{feed}} -->
+
+<!--  Prisoner table-->
+<div ng-if="pri==1">
 <table class="table" show-filter="true">
-    <tr ng-repeat="x in feed">
-        <td>{{x}}</td>
+  <tr>
+<th>Pid</th>
+<th>Name</th>
+<th>Crime</th>
+<th>Address</th>
+<th>DOJ</th>
+<th>D_id</th>
+<th>shift</th>
+<th>C_id</th>
+<th>Cell_id</th>
+<th>L_id</th>
+<th>Remarks</th>
+<th>Medical_records</th>
+
+  </tr>
+    <tr ng-repeat="x in prisoner">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Pid}}</td>
+        <td>{{x.Name}}</td>
+        <td>{{x.Crime}}</td>
+        <td>{{x.Address}}</td>
+        <td>{{x.Doj}}</td>
+        <td>{{x.D_id}}</td>
+        <td>{{x.Shift}}</td>
+        <td>{{x.C_id}}</td>
+        <td>{{x.Cell_id}}</td>
+        <td>{{x.L_id}}</td>
+        <td>{{x.Remarks}}</td>
+        <td>{{x.Medical_records}}</td>
     </tr>
 </table>
+</div>
+
+<!-- department table -->
+<div ng-if="law==1">
+<table class="table" show-filter="true">
+  <tr>
+<th>Lid</th>
+<th>Phno</th>
+<th>Address</th>
+<th>Super_id</th>
+<th>Status</th>
+<th>Reason</th>
+
+
+  </tr>
+    <tr ng-repeat="x in lawyer">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Lid}}</td>
+        <td>{{x.PhNo}}</td>
+        <td>{{x.Address}}</td>
+        <td>{{x.Super_id}}</td>
+        <td>{{x.Status}}</td>
+        <td>{{x.Reason}}</td>
+
+    </tr>
+</table>
+</div>
+
+<div ng-if="dep==1">
+<table class="table" show-filter="true">
+  <tr>
+<th>Did</th>
+<th>Name</th>
+<th>No_of_people</th>
+
+  </tr>
+    <tr ng-repeat="x in department">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Did}}</td>
+        <td>{{x.Name}}</td>
+        <td>{{x.No_of_people}}</td>
+    </tr>
+</table>
+</div>
+
+<div ng-if="cas==1">
+<table class="table" show-filter="true">
+  <tr>
+<th>Cid</th>
+<th>Details</th>
+<th>Status</th>
+
+  </tr>
+    <tr ng-repeat="x in cases">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Cid}}</td>
+        <td>{{x.Details}}</td>
+        <td>{{x.Status}}</td>
+    </tr>
+</table>
+</div>
+
+<div ng-if="cel==1">
+<table class="table" show-filter="true">
+  <tr>
+<th>Cell_id</th>
+<th>FloorNo</th>
+<th>Capacity</th>
+<th>G_id</th>
+
+  </tr>
+    <tr ng-repeat="x in cell">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Cell_id}}</td>
+        <td>{{x.FloorNo}}</td>
+        <td>{{x.Capacity}}</td>
+        <td>{{x.G_id}}</td>
+    </tr>
+</table>
+</div>
+
+<div ng-if="depe==1">
+<table class="table" show-filter="true">
+  <tr>
+<th>Name</th>
+<th>P_id</th>
+<th>Relation</th>
+<th>PhNo</th>
+<th>Status</th>
+<th>Super_id</th>
+<th>Reason</th>
+
+  </tr>
+    <tr ng-repeat="x in dependents">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Name}}</td>
+        <td>{{x.P_id}}</td>
+        <td>{{x.Relation}}</td>
+        <td>{{x.PhNo}}</td>
+        <td>{{x.Status}}</td>
+        <td>{{x.Super_id}}</td>
+        <td>{{x.Reason}}</td>
+
+    </tr>
+</table>
+</div>
+
+
+<div ng-if="gu==1">
+<table class="table" show-filter="true">
+  <tr>
+<th>Gid</th>
+<th>Name</th>
+<th>Address</th>
+<th>PhNo</th>
+<th>Salary</th>
+<th>D_id</th>
+<th>Shift</th>
+<th>Super_id</th>
+
+
+  </tr>
+    <tr ng-repeat="x in guard">
+      <!-- <th>{{x}}</th> -->
+        <td>{{x.Gid}}</td>
+        <td>{{x.Name}}</td>
+        <td>{{x.Address}}</td>
+        <td>{{x.PhNo}}</td>
+        <td>{{x.Salary}}</td>
+        <td>{{x.D_id}}</td>
+        <td>{{x.Shift}}</td>
+        <td>{{x.Super_id}}</td>
+    </tr>
+</table>
+</div>
 
 </div>
 <script>

@@ -1,4 +1,4 @@
-<div ng-controller="ControllerLawyer">
+<div ng-controller="lawyerController">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -7,40 +7,30 @@
 
   </div>
 </nav>
-<form ng-submit="meetReqLaw()">
+<form ng-submit="meetReqLaw(lawyer)">
     <label for="req">Fill in the following details to send request to the supervisor:</label>
     <div class="form-group">
     <label for="lid">ID:</label>
-    <input type="text" class="form-control" id="lid" ng-model="lid">
+    <input type="text" class="form-control" ng-model="lawyer.lid">
   </div>
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name" ng-model="name">
+    <input type="text" class="form-control"  ng-model="lawyer.name">
   </div>
   <div class="form-group">
     <label for="reason">Reason for request:</label>
-    <input type="text" class="form-control" id="reason" ng-model="reason">
+    <input type="text" class="form-control"  ng-model="lawyer.reason">
   </div>
     <label for="reqtm">Request To Meet (Enter prisoner details):</label>
   <div class="form-group">
     <label for="pid">PID:</label>
-    <input type="text" class="form-control" id="pid" ng-model="pid">
+    <input type="text" class="form-control"  ng-model="lawyer.pid">
   </div>
   <div class="form-group">
     <label for="pname">Prisoner Name:</label>
-    <input type="text" class="form-control" id="pname" ng-model="pname">
+    <input type="text" class="form-control"  ng-model="lawyer.pname">
   </div>
-  <button id = "submit" type="button" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
 </div>
-<script>
-	$(function(){
-
-
-
-
-
-	});
-</script>
-<script src = "main.js"></script>

@@ -49,7 +49,7 @@ app.controller('loginController', function($scope, $location,$rootScope, $http) 
   				 }
          }
          else {
-           alert(data.data.message);
+           alert("incorrect username and password");
          }
        }, function(err){})
      }

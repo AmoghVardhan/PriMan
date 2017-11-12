@@ -1,18 +1,19 @@
 var app = angular.module("mainApp");
 
 app.controller('lawyerController', function($scope, $location,$rootScope, $http) {
+alert("herer");
 
-
-  $scope.meetReqLaw=function(){
+$scope.name = "";
+$scope.reason = "";
+$scope.pid = "";
+$scope.pname = "";
+$scope.lid = "";
+  $scope.meetReqLaw=function(lawyer){
+    alert("in function ")
     $http({
       url: '/meetReqLaw',
       method: 'post',
-      data: {
-        "name": $scope.name,
-        "reason": $scope.reason,
-        "pid": $scope.pid,
-        "pname": $scope.pname
-      }
+      data: lawyer
     }).then(function(data) {
       if(data.data.success) {
         alert("Dependent added successfully");

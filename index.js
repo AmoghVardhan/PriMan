@@ -13,7 +13,7 @@ var ControllerAssignWork = require('./server/controllers/ControllerAssignWork');
 var ControllerFamily = require('./server/controllers/ControllerFamily');
 var ControllerLawyer = require('./server/controllers/ControllerLawyer');
 var ControllerDoctor = require('./server/controllers/ControllerDoctor');
-var ControllerRequestValidate = require('./server/controllers/ControllerRequestValidate');
+var ControllerViewDetails = require('./server/controllers/ControllerViewDetails');
 
 
 
@@ -49,7 +49,7 @@ app.post('/assignW', ControllerAssignWork.assignW);
 app.post('/meetReq', ControllerFamily.meetReq);
 app.post('/meetReqLaw', ControllerLawyer.meetReqLaw);
 app.post('/meetReqDoc', ControllerDoctor.meetReqDoc);
-app.post('/retrieve', ControllerRequestValidate.retrieve);
+app.post('/retrieve', ControllerViewDetails.retrieve);
 
 
 

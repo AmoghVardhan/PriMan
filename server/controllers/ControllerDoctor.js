@@ -12,17 +12,18 @@ module.exports.meetReqDoc = function(req, res) {
   var info = {
     pid:req.body.pid,
     name:req.body.name,
-    medicalRecords:req.body.medicalRecords
+    //medicalRecords:req.body.medicalRecords
   }
-  // connection.query('INSERT INTO prisoner SET ?', info, function(err,result){
-  //  if(err) {
-  //    console.log(err);
-  //    res.send({success: false});
-  //  }
-  //  else {
-  //    res.send({success: true});
-  //  }
-  // });
+  connection.query('select medical_records from prisoner where (pid = ?)', info.pid, function(err,result){
+   if(err) {
+     console.log(err);
+     res.send({success: false});
+   }
+   else {
+     //res.send({success: true, message: "correct" ,result:result})
+     res.send({success: true,result:result});
+   }
+  });
   //
   //  if(err) {
   //    console.log(err);

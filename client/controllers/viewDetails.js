@@ -2,6 +2,15 @@ var app = angular.module("mainApp");
 
 app.controller('viewDetailsController', function($scope, $location,$rootScope, $http) {
 	// console.log('aklsdkajsdksj');
+$scope.pri=false;
+$scope.dep=false;
+$scope.cas=false;
+$scope.cel=false;
+$scope.depe=false;
+$scope.law=false;
+$scope.gu=false;
+
+
 
 	$scope.data = {
  	availableOptions: [
@@ -21,20 +30,58 @@ app.controller('viewDetailsController', function($scope, $location,$rootScope, $
 	$scope.retrieve=function(){
 
 	}
-  $scope.update=function(type){
-    $scope.labelName=type+" Id:";
-		t = type;
+  $scope.update=function(id){
+
 		$http({
 			url: '/retrieve',
 			method: 'post',
 			data: {
-				"type": t,
-				"id": $scope.id
+				"id": id
 			}
 		}).then(function(data) {
 			if(data.data.success) {
-				$scope.feed = data.data.result;
-				//console.log(JSON.stringify(feed));
+				$scope.pri=false;
+				$scope.dep=false;
+				$scope.cas=false;
+				$scope.cel=false;
+				$scope.depe=false;
+				$scope.law=false;
+				$scope.gu=false;
+				//alert(id);
+				switch(id)
+				{
+						case '1':
+						$scope.pri=true;
+						$scope.prisoner = data.data.result;
+						break;
+						case '2':
+						$scope.dep=true;
+						$scope.department = data.data.result;
+						break;
+						case '3':
+						$scope.cas=true;
+						$scope.cases = data.data.result;
+						break;
+						case '4':
+						$scope.cel=true;
+						$scope.cell = data.data.result;
+						break;
+						case '5':
+						$scope.depe=true;
+						$scope.dependents = data.data.result;
+						break;
+						case '6':
+						$scope.law = true;
+						$scope.lawyer = data.data.result;
+						break;
+						case '7':
+						$scope.gu=true;
+						$scope.guard = data.data.result;
+						break;
+				}
+
+				//$scope.prisoner = data.data.result;
+				console.log(JSON.stringify(feed));
 			}
 			else {
 				alert(data.data.message);

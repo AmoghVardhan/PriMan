@@ -16,15 +16,15 @@ module.exports.meetReqLaw = function(req, res) {
     pid:req.body.pid,
     pname:req.body.pname
   }
-  // connection.query('INSERT INTO prisoner SET ?', info, function(err,result){
-  //  if(err) {
-  //    console.log(err);
-  //    res.send({success: false});
-  //  }
-  //  else {
-  //    res.send({success: true});
-  //  }
-  // });
+  connection.query('update  lawyer set Reason =? where Lid =?', [info.reason,info.lid], function(err,result){
+   if(err) {
+     console.log(err);
+     res.send({success: false});
+   }
+   else {
+     res.send({success: true});
+   }
+  });
   //
   //  if(err) {
   //    console.log(err);
