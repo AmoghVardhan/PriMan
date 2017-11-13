@@ -1,5 +1,14 @@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css"> -->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.js"></script>
+<link rel ="stylesheet" href =" main1.css">
 <div ng-controller="lawyerController">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#/index.html">PRISON MANAGEMENT</a>
@@ -7,30 +16,42 @@
 
   </div>
 </nav>
-<form ng-submit="meetReqLaw(lawyer)">
+<div class = "centeredlaw">
+
+	<div class="panel panel-default">
+<form id="t1" ng-submit="meetReqLaw(lawyer)">
     <label for="req">Fill in the following details to send request to the supervisor:</label>
     <div class="form-group">
     <label for="lid">ID:</label>
-    <input type="text" class="form-control" ng-model="lawyer.lid">
+    <input type="text" class="form-control" ng-model="lawyer.lid" required>
   </div>
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control"  ng-model="lawyer.name">
+    <input type="text" class="form-control"  ng-model="lawyer.name" required>
   </div>
   <div class="form-group">
     <label for="reason">Reason for request:</label>
-    <input type="text" class="form-control"  ng-model="lawyer.reason">
+    <input type="text" class="form-control"  ng-model="lawyer.reason" required>
   </div>
     <label for="reqtm">Request To Meet (Enter prisoner details):</label>
   <div class="form-group">
     <label for="pid">PID:</label>
-    <input type="text" class="form-control"  ng-model="lawyer.pid">
+    <input type="text" class="form-control"  ng-model="lawyer.pid" required>
   </div>
   <div class="form-group">
     <label for="pname">Prisoner Name:</label>
-    <input type="text" class="form-control"  ng-model="lawyer.pname">
+    <input type="text" class="form-control"  ng-model="lawyer.pname" required>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-
+  <div class="text-center">
+  <button type="submit" class="btn-custom">Submit</button>
 </div>
+</form>
+</div>
+</div>
+</div>
+
+<script>
+  $(function(){
+
+    $("#t1").validate();
+    });

@@ -18,7 +18,7 @@ module.exports.assignW = function(req, res) {
   }
   if(info.pid!="undefined")
   {
-    connection.query('update  prisoner set D_id =?,Shift=? where Pid =?', [info.did,info.Shift,info.pid], function(err,result){
+    connection.query('update  prisoner set D_id =?,Shift=? where Pid =?', [info.did,info.shift,info.pid], function(err,result){
      if(err) {
        console.log(err);
        res.send({success: false});
@@ -28,8 +28,9 @@ module.exports.assignW = function(req, res) {
      }
     });
   }
-  if(info.gid!="undefined") {
-    connection.query('update  guard set D_id =?,Shift=? where Gid =?', [info.did,info.Shift,info.gid], function(err,result){
+  else if(info.gid!="undefined") {
+//else{
+    connection.query('update  guard set D_id =?,Shift=? where Gid =?', [info.did,info.shift,info.gid], function(err,result){
      if(err) {
        console.log(err);
        res.send({success: false});
@@ -38,7 +39,11 @@ module.exports.assignW = function(req, res) {
        res.send({success: true});
      }
     });
+    }
+  else{
+    res.send({success: false});
   }
+
 
 
   }

@@ -1,5 +1,14 @@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css"> -->
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.js"></script>
+<link rel ="stylesheet" href =" main1.css">
 <div ng-controller="addPrisonerController">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#/index">PRISON MANAGEMENT</a>
@@ -15,15 +24,16 @@
     </ul>
   </div>
 </nav>
-<form ng-submit="addRecord()">
+<form id="t1" ng-submit="addRecord()">
 <div class="col-sm-6">
+<div class = "panel panel-default">
   <div class="form-group">
     <label for="pid">Unique ID: </label>
-    <input  name = "abcd" type="text" class="form-control" ng-model="id">
+    <input  name = "abcd" type="text" class="form-control" ng-model="id" required>
   </div>
   <div class="form-group">
     <label for="usr">Prisoner Name:</label>
-    <input type="text" class="form-control" id="usr" ng-model="pname">
+    <input type="text" class="form-control" id="usr" ng-model="pname" required>
   </div>
      <div class="form-group">
       <label for="sel1">Crime commited:</label>
@@ -34,20 +44,22 @@
     </div>
   <div class="form-group">
     <label for="doj">Date Of Jailing:</label>
-    <input type="text" class="form-control" id="doj" ng-model="doj">
+    <input type="text" class="form-control" id="doj" ng-model="doj" required>
   </div>
   <div class="form-group">
     <label for="address">Address:</label>
-    <input type="text" class="form-control" id="address" ng-model="address">
+    <input type="text" class="form-control" id="address" ng-model="address" required>
   </div>
   <div class="form-group">
     <label for="remarks">Remarks:</label>
-    <textarea class = "form-control" rows = "5" id = "remarks" ng-model="remarks"></textarea>
+    <textarea class = "form-control" rows = "5" id = "remarks" ng-model="remarks" required></textarea>
   </div>
+</div>
+  <button type="submit" class="btn-custom">Add Prisoner</button>
 
-  <button type="submit" class="btn btn-default">Submit</button>
 </div>
 <div class="col-sm-6">
+	<div class = "panel panel-default">
   <!-- <div class="form-group">
     <label for="profilePhoto">Add Photo:</label>
     <br>
@@ -61,31 +73,31 @@
   </div> -->
   <div class="form-group">
     <label for="medicalRecords">Medical Records:</label>
-    <textarea class = "form-control" rows = "2" id = "medicalRecords" ng-model="medicalRecords"></textarea>
+    <textarea class = "form-control" rows = "2" id = "medicalRecords" ng-model="medicalRecords" required></textarea>
   </div>
 
   <div class="form-group">
     <label for="case id">Case ID:</label>
-    <input type="text" class="form-control" id="caseId" ng-model="cid">
+    <input type="text" class="form-control" id="caseId" ng-model="cid" required>
   </div>
   <div class="form-group">
     <label for="lawyerId">Lawyer ID:</label>
-    <input type="text" class="form-control" id="lid" ng-model="lid">
+    <input type="text" class="form-control" id="lid" ng-model="lid" required>
   </div>
   <div class="form-group">
     <label for="cell id">Cell ID:</label>
-    <input type="text" class="form-control" id="cellid" ng-model="cellid">
+    <input type="text" class="form-control" id="cellid" ng-model="cellid" required>
   </div>
   <div class="form-group">
     <label for="dept id">Department ID:</label>
-    <input type="text" class="form-control" id="did" ng-model="did">
+    <input type="text" class="form-control" id="did" ng-model="did" required>
   </div>
   <div class="form-group">
     <label for="shift">Shift:</label>
-    <input type="text" class="form-control" id="shift" ng-model="shift">
+    <input type="text" class="form-control" id="shift" ng-model="shift" required>
   </div>
 
-
+</div>
 
 </div>
 </form>
@@ -110,7 +122,7 @@
     //     window.alert('i know');
     //   }
     // })
-
+    $("#t1").validate();
 
 
 	});

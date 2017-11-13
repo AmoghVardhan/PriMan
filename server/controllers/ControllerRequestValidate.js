@@ -16,7 +16,7 @@ module.exports.validate = function(req, res) {
     if(error) console.log(error);
     else {
 
-      connection.query('SELECT * FROM lawyer', function (error, result2, fields) {
+      connection.query('SELECT * FROM lawyer where Status ="Pending"', function (error, result2, fields) {
         if(error) console.log(error);
         else {
           res.send({success: true, message: "correct" ,result1:result1,result2:result2})

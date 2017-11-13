@@ -1,7 +1,7 @@
 var app = angular.module("mainApp");
 
 app.controller('doctorController', function($scope, $location,$rootScope, $http) {
-  alert('reached');
+  //alert('reached');
   $scope.show=false;
   $scope.meetReqDoc=function(){
 
@@ -9,16 +9,18 @@ app.controller('doctorController', function($scope, $location,$rootScope, $http)
       url: '/meetReqDoc',
       method: 'post',
       data: {
-        "pid": $scope.pid,
-        "name": $scope.name
+        "pid": $scope.pid
+        //"name": $scope.name
         //"medicalRecords": $scope.medicalRecords,
       }
     }).then(function(data) {
       if(data.data.success) {
         alert("Data Retrieved");
-        $scope.show=true;
-        $scope.medfill=data.data.result[0].medical_records;
         console.log(data.data.result[0]);
+        $scope.show=true;
+        $scope.medfill=data.data.result[0].Medical_records;
+        $scope.pname=data.data.result[0].Name;
+
       }
       else {
         alert(data.data.message);
