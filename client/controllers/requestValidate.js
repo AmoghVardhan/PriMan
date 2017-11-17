@@ -26,12 +26,13 @@ app.controller('requestValidateController', function($scope, $location,$rootScop
    }).then(function(data) {
      if(data.data.success) {
        alert("updated");
-
+       location.reload();
      }
      else {
        alert(data.data.message);
      }
    }, function(err){})
+
  }
  $scope.statusUpdateDepRej=function(x){
    $http({
@@ -41,6 +42,7 @@ app.controller('requestValidateController', function($scope, $location,$rootScop
    }).then(function(data) {
      if(data.data.success) {
        alert("updated");
+       location.reload();
 
      }
      else {
@@ -62,6 +64,7 @@ app.controller('requestValidateController', function($scope, $location,$rootScop
    }).then(function(data) {
      if(data.data.success) {
        alert("updated");
+       location.reload();
 
      }
      else {
@@ -77,6 +80,7 @@ app.controller('requestValidateController', function($scope, $location,$rootScop
    }).then(function(data) {
      if(data.data.success) {
        alert("updated");
+       location.reload();
 
      }
      else {
