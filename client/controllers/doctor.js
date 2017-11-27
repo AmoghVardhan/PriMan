@@ -23,7 +23,7 @@ app.controller('doctorController', function($scope, $location,$rootScope, $http)
 
       }
       else {
-        alert(data.data.message);
+        alert("Enter valid prisoner id");
       }
     }, function(err){})
   }

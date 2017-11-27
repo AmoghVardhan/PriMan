@@ -22,7 +22,12 @@ module.exports.meetReqDoc = function(req, res) {
    else {
      //res.send({success: true, message: "correct" ,result:result})
      console.log(result);
-     res.send({success: true,result:result});
+     if(result.length>0)
+      res.send({success: true,result:result});
+     else {
+       res.send({success:false});
+     }
+
    }
   });
   //

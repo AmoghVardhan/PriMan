@@ -14,7 +14,7 @@ module.exports.addDep = function(req, res) {
     p_id:req.body.pid,
     relation:req.body.relation,
     phNo:req.body.phoneNo,
-    status:"Pending",
+    status:"",
     super_id:req.body.super,
     reason:""
 
@@ -25,6 +25,7 @@ module.exports.addDep = function(req, res) {
      res.send({success: false});
    }
    else {
+     
      res.send({success: true});
    }
   });

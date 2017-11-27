@@ -31,7 +31,7 @@ $scope.gua=false;
 
       }
       else {
-        alert(data.data.message);
+        alert("Enter valid details");
       }
     }, function(err){})
   }

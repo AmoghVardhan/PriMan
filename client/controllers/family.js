@@ -9,15 +9,15 @@ app.controller('familyController', function($scope, $location,$rootScope, $http)
       method: 'post',
       data: fam
     }).then(function(data) {
-      if(data.data.success) {
-        alert("Dependent added successfully");
+      if(data.data.success) {        
+        alert("Request sent successfully");
       }
       else if(data.data.stat)
       {
         alert(data.data.stat);
       }
       else {
-        alert(data.data.message);
+      alert("Please enter valid details");
       }
     }, function(err){})
   }
