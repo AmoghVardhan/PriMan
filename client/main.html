@@ -17,7 +17,7 @@
   crossorigin="anonymous"></script>
 
 <!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"</script> -->
-
+<!-- cdn = control delivery network -->
 
 <script src="	https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.2/css/tether-theme-arrows-dark.css"></script>
 
@@ -61,7 +61,11 @@ body{
 </head>
 <body >
 
-
+<!-- ng-app is the starting point of angular js application -->
+<!-- mainCtrl is a javascript function. the js will invoke the controller with a $scope object( which is the application object); -->
+<!-- if we want to navigate to different pages in our application but also want the application to be spa(single page application), with no page reload,
+we can use ng route that is angular js provides spa via multiple views on a single page -->
+<!-- ng view is simply a place holder where corresponding view files are added -->
 	<div ng-app = "mainApp" ng-controller="mainCtrl">
 		<div ng-view=""></div>
 	</div>

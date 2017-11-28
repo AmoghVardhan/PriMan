@@ -22,7 +22,7 @@ app.controller('addDependentsController', function($scope, $location,$rootScope,
       }
       else {
         // alert(data.data.message);
-        alert("Please enter all the details");
+        alert("Please enter valid details");
       }
     }, function(err){})
   }

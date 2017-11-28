@@ -27,7 +27,23 @@ module.exports.assignW = function(req, res) {
        res.send({success: false});
      }
      else {
-       res.send({success: true});
+       //res.send({success: true});
+       connection.query('select * from prisoner where Pid=? ',[info.pid],function(err,result1){
+         //console.log(result1);
+         if(result1.length>0){
+         if(  result1[0].D_id==info.did && result1[0].Shift==info.shift )
+          {
+            res.send({success: true});
+          }
+          else {
+            res.send({success:false});
+          }
+        }
+          else
+          {
+            res.send({success:false});
+          }
+       });
      }
     });
   }
@@ -43,7 +59,23 @@ module.exports.assignW = function(req, res) {
        res.send({success: false});
      }
      else {
-       res.send({success: true});
+       //res.send({success: true});
+       connection.query('select * from guard where Gid=? ',[info.gid],function(err,result1){
+         //console.log(result1);
+         if(result1.length>0){
+         if(  result1[0].D_id==info.did && result1[0].Shift==info.shift )
+          {
+            res.send({success: true});
+          }
+          else {
+            res.send({success:false});
+          }
+        }
+          else
+          {
+            res.send({success:false});
+          }
+       });
      }
     });
     }

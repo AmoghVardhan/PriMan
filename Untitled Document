@@ -1,8 +1,0 @@
-Terminal commands
-1.show only current directoryPS1='\W\$ '
-2.to start xampp:-sudo /opt/lampp/manager-linux-x64.run
-	before  which you need to stop other mysql stuff running hence type
-	sudo service mysql stop
-
-3.system clear : - to clean the terminal in mysql 
-4.if you want to use mysql on terminal make sure your xampp server is stopped completely
