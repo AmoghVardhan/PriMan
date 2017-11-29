@@ -44,7 +44,7 @@ label{
   </ul>
 </div>  -->
 
-<label for="choose">Choose Database to View:</label>
+<label for="choose">Choose table to View:</label>
 <select name="mySelect" id="mySelect"
  ng-options="option.name for option in data.availableOptions track by option.id"
  ng-model="data.selectedOption"
@@ -86,7 +86,7 @@ label{
         <td>{{x.Name}}</td>
         <td>{{x.Crime}}</td>
         <td>{{x.Address}}</td>
-        <td>{{x.Doj}}</td>
+        <td>{{x.DOJ}}</td>
         <td>{{x.D_id}}</td>
         <td>{{x.Shift}}</td>
         <td>{{x.C_id}}</td>
